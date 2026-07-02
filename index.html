@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AEGIS-X | Real-Time UPI Fraud Intelligence</title>
+  <meta name="description" content="AEGIS-X is a masters-level real-time UPI fraud detection platform powered by a three-model ML ensemble — Random Forest, SVM, and Logistic Regression — trained on 284,807 real financial transactions."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+
+  <!-- Aurora BG (site-wide) -->
+  <div class="aurora" aria-hidden="true">
+    <div class="a1"></div>
+    <div class="a2"></div>
+    <div class="a3"></div>
+    <div class="a4"></div>
+  </div>
+
+  <!-- ═══════════════ NAVBAR ═══════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <svg viewBox="0 0 36 40" width="24" height="28" class="nav-shield">
+          <path d="M18 1 L34 9 L34 22 C34 31 18 39 18 39 C18 39 2 31 2 22 L2 9 Z"
+            fill="rgba(139,92,246,0.2)" stroke="url(#sg)" stroke-width="1.5" stroke-linejoin="round"/>
+          <text x="18" y="24" text-anchor="middle" fill="#a78bfa" font-size="9"
+            font-family="Inter" font-weight="800">AX</text>
+          <defs>
+            <linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#8b5cf6"/>
+              <stop offset="100%" stop-color="#3b82f6"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="nav-logo-text">AEGIS<span>-X</span></span>
+      </div>
+      <div class="nav-links">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#models"   class="nav-link">ML Models</a>
+        <a href="#architecture" class="nav-link">Architecture</a>
+        <a href="#dashboard" class="nav-link">Live Demo</a>
+      </div>
+      <div class="nav-right">
+
+        <a href="#dashboard" class="nav-cta">
+          <i data-feather="activity"></i>
+          Launch Console
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        Real-Time Machine Learning · UPI Fraud Detection
+      </div>
+
+      <h1 class="hero-title">
+        Protecting Every
+        <span class="gradient-text">UPI Transaction</span>
+        with AI
+      </h1>
+
+      <p class="hero-subtitle">
+        AEGIS-X is a masters-level fraud intelligence platform that uses a 
+        <strong>three-model ML ensemble</strong> to analyse UPI transactions in real-time —
+        trained on <strong>284,807</strong> real financial transactions with
+        <strong>99.94% accuracy</strong>.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#dashboard" class="btn-primary">
+          <i data-feather="activity"></i>
+          View Live Console
+        </a>
+        <a href="#architecture" class="btn-secondary">
+          <i data-feather="cpu"></i>
+          Explore Architecture
+        </a>
+      </div>
+
+      <!-- Hero stats -->
+      <div class="hero-stats">
+        <div class="hstat">
+          <div class="hstat-val">284,807</div>
+          <div class="hstat-lbl">Training Samples</div>
+        </div>
+        <div class="hstat-div"></div>
+        <div class="hstat">
+          <div class="hstat-val">99.94%</div>
+          <div class="hstat-lbl">Model Accuracy</div>
+        </div>
+        <div class="hstat-div"></div>
+        <div class="hstat">
+          <div class="hstat-val">14 ms</div>
+          <div class="hstat-lbl">Inference Latency</div>
+        </div>
+        <div class="hstat-div"></div>
+        <div class="hstat">
+          <div class="hstat-val">3</div>
+          <div class="hstat-lbl">ML Models</div>
+        </div>
+        <div class="hstat-div"></div>
+        <div class="hstat">
+          <div class="hstat-val">Real-Time</div>
+          <div class="hstat-lbl">UPI Monitoring</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero visual -->
+    <div class="hero-visual">
+      <div class="hero-card-mock">
+        <div class="mock-header">
+          <span class="mock-dot red"></span>
+          <span class="mock-dot amber"></span>
+          <span class="mock-dot green"></span>
+          <span class="mock-title">AEGIS-X · Live Console</span>
+        </div>
+        <div class="mock-body">
+          <div class="mock-row safe">
+            <i data-feather="check-circle"></i>
+            <span>rahul.sharma@ybl</span>
+            <span class="mock-score">2.1%</span>
+            <span class="mock-badge safe">SAFE</span>
+          </div>
+          <div class="mock-row fraud">
+            <i data-feather="alert-triangle"></i>
+            <span>user.93847@kotak</span>
+            <span class="mock-score red">98.9%</span>
+            <span class="mock-badge fraud">BLOCKED</span>
+          </div>
+          <div class="mock-row safe">
+            <i data-feather="check-circle"></i>
+            <span>maaz@paytm</span>
+            <span class="mock-score">1.2%</span>
+            <span class="mock-badge safe">SAFE</span>
+          </div>
+          <div class="mock-row fraud">
+            <i data-feather="alert-triangle"></i>
+            <span>anon.71265@okhdfc</span>
+            <span class="mock-score red">99.4%</span>
+            <span class="mock-badge fraud">BLOCKED</span>
+          </div>
+          <div class="mock-row safe">
+            <i data-feather="check-circle"></i>
+            <span>sana@ybl</span>
+            <span class="mock-score">0.8%</span>
+            <span class="mock-badge safe">SAFE</span>
+          </div>
+        </div>
+        <div class="mock-footer">
+          <span class="mock-live"><span class="live-blink"></span> Live · 14ms avg</span>
+          <span class="mock-acc">Accuracy: 99.94%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FEATURES ═══════════════ -->
+  <section class="section" id="features">
+    <div class="section-inner">
+      <div class="section-label">CAPABILITIES</div>
+      <h2 class="section-title">Built for Real-World Fraud Detection</h2>
+      <p class="section-sub">
+        Every component of AEGIS-X is engineered for production-grade UPI security,
+        combining classical machine learning with real-time network telemetry.
+      </p>
+
+      <div class="features-grid">
+        <div class="feat-card reveal">
+          <div class="feat-icon purple">
+            <i data-feather="shield"></i>
+          </div>
+          <h3 class="feat-title">Three-Model Ensemble</h3>
+          <p class="feat-desc">Combines Random Forest, Support Vector Machine, and Logistic Regression in a voting ensemble for robust, low-false-positive classification.</p>
+        </div>
+
+        <div class="feat-card reveal">
+          <div class="feat-icon blue">
+            <i data-feather="zap"></i>
+          </div>
+          <h3 class="feat-title">Real-Time Inference</h3>
+          <p class="feat-desc">Flask-powered ML server delivers fraud predictions in under 14 milliseconds — fast enough to block fraudulent transactions before they complete.</p>
+        </div>
+
+        <div class="feat-card reveal">
+          <div class="feat-icon green">
+            <i data-feather="map-pin"></i>
+          </div>
+          <h3 class="feat-title">Geo-Anomaly Detection</h3>
+          <p class="feat-desc">Automatically flags transactions originating from high-risk international IP ranges (RU, CN, NG, PH, RO, UA) with geo-velocity analysis.</p>
+        </div>
+
+        <div class="feat-card reveal">
+          <div class="feat-icon amber">
+            <i data-feather="database"></i>
+          </div>
+          <h3 class="feat-title">UPI Registry Verification</h3>
+          <p class="feat-desc">Cross-references each VPA against a curated registry of 200+ verified UPI identities. Unregistered IDs are instantly flagged for review.</p>
+        </div>
+
+        <div class="feat-card reveal">
+          <div class="feat-icon purple">
+            <i data-feather="trending-up"></i>
+          </div>
+          <h3 class="feat-title">PCA Feature Engineering</h3>
+          <p class="feat-desc">28 principal components (V1–V28) extracted via PCA from raw transaction data, preserving variance while protecting user privacy.</p>
+        </div>
+
+        <div class="feat-card reveal">
+          <div class="feat-icon blue">
+            <i data-feather="monitor"></i>
+          </div>
+          <h3 class="feat-title">Live SOC Console</h3>
+          <p class="feat-desc">A real-time Security Operations Console streams live transaction decisions, inspector view, ML pipeline visualisation and system metrics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ ML MODELS ═══════════════ -->
+  <section class="section alt-section" id="models">
+    <div class="section-inner">
+      <div class="section-label">ML ENSEMBLE</div>
+      <h2 class="section-title">Three Models. One Decision.</h2>
+      <p class="section-sub">Each model brings a unique strength. Together they form a robust ensemble that minimises false positives while maximising fraud recall.</p>
+
+      <div class="models-grid">
+        <div class="model-card reveal">
+          <div class="model-num">01</div>
+          <div class="model-header">
+            <div class="model-icon"><i data-feather="git-branch"></i></div>
+            <div>
+              <div class="model-name">Random Forest</div>
+              <div class="model-type">Primary Classifier</div>
+            </div>
+          </div>
+          <p class="model-desc">An ensemble of 100 decision trees trained on PCA-transformed transaction features. Each tree votes independently — the majority verdict wins.</p>
+          <div class="model-stats">
+            <div class="mstat"><span class="mstat-v">99.94%</span><span class="mstat-l">Accuracy</span></div>
+            <div class="mstat"><span class="mstat-v">0.9971</span><span class="mstat-l">F1-Score</span></div>
+            <div class="mstat"><span class="mstat-v">100</span><span class="mstat-l">Estimators</span></div>
+          </div>
+          <div class="model-bar-wrap">
+            <div class="model-bar" style="width:99.94%"></div>
+          </div>
+        </div>
+
+        <div class="model-card reveal">
+          <div class="model-num">02</div>
+          <div class="model-header">
+            <div class="model-icon"><i data-feather="maximize-2"></i></div>
+            <div>
+              <div class="model-name">Support Vector Machine</div>
+              <div class="model-type">Secondary Classifier</div>
+            </div>
+          </div>
+          <p class="model-desc">Finds the optimal hyperplane separating fraudulent from legitimate transactions in high-dimensional PCA feature space.</p>
+          <div class="model-stats">
+            <div class="mstat"><span class="mstat-v">RBF</span><span class="mstat-l">Kernel</span></div>
+            <div class="mstat"><span class="mstat-v">±4.2</span><span class="mstat-l">Safe Dist</span></div>
+            <div class="mstat"><span class="mstat-v">−2.5</span><span class="mstat-l">Fraud Dist</span></div>
+          </div>
+          <div class="model-bar-wrap">
+            <div class="model-bar" style="width:96%"></div>
+          </div>
+        </div>
+
+        <div class="model-card reveal">
+          <div class="model-num">03</div>
+          <div class="model-header">
+            <div class="model-icon"><i data-feather="trending-up"></i></div>
+            <div>
+              <div class="model-name">Logistic Regression</div>
+              <div class="model-type">Probability Estimator</div>
+            </div>
+          </div>
+          <p class="model-desc">Provides calibrated probability estimates for each transaction, used to compute the final risk score percentage shown in the dashboard.</p>
+          <div class="model-stats">
+            <div class="mstat"><span class="mstat-v">L2</span><span class="mstat-l">Regularisation</span></div>
+            <div class="mstat"><span class="mstat-v">0–1</span><span class="mstat-l">Risk Score</span></div>
+            <div class="mstat"><span class="mstat-v">0.5</span><span class="mstat-l">Threshold</span></div>
+          </div>
+          <div class="model-bar-wrap">
+            <div class="model-bar" style="width:92%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ ARCHITECTURE ═══════════════ -->
+  <section class="section" id="architecture">
+    <div class="section-inner">
+      <div class="section-label">SYSTEM DESIGN</div>
+      <h2 class="section-title">End-to-End Architecture</h2>
+      <p class="section-sub">A full-stack fraud detection pipeline — from raw UPI transaction to a real-time blocked/verified decision.</p>
+
+      <div class="arch-flow">
+        <div class="arch-step reveal">
+          <div class="arch-icon" style="background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.3)">
+            <i data-feather="smartphone"></i>
+          </div>
+          <div class="arch-content">
+            <div class="arch-step-num">01</div>
+            <div class="arch-step-title">UPI Transaction</div>
+            <div class="arch-step-desc">A UPI payment is initiated. The VPA, amount, location, IP, and timestamp are captured by the pipeline.</div>
+          </div>
+        </div>
+        <div class="arch-arrow"><i data-feather="arrow-right"></i></div>
+
+        <div class="arch-step reveal">
+          <div class="arch-icon" style="background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.3)">
+            <i data-feather="server"></i>
+          </div>
+          <div class="arch-content">
+            <div class="arch-step-num">02</div>
+            <div class="arch-step-title">Node.js Backend</div>
+            <div class="arch-step-desc">Runs on port 3001. Validates the VPA against the UPI registry, applies geo-anomaly rules, then forwards to ML service.</div>
+          </div>
+        </div>
+        <div class="arch-arrow"><i data-feather="arrow-right"></i></div>
+
+        <div class="arch-step reveal">
+          <div class="arch-icon" style="background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.3)">
+            <i data-feather="cpu"></i>
+          </div>
+          <div class="arch-content">
+            <div class="arch-step-num">03</div>
+            <div class="arch-step-title">Flask ML Server</div>
+            <div class="arch-step-desc">Runs on port 5000. Runs the three-model ensemble on PCA features. Returns isFraud + riskScore in ~14ms.</div>
+          </div>
+        </div>
+        <div class="arch-arrow"><i data-feather="arrow-right"></i></div>
+
+        <div class="arch-step reveal">
+          <div class="arch-icon" style="background:rgba(34,197,94,0.12);border-color:rgba(34,197,94,0.3)">
+            <i data-feather="shield"></i>
+          </div>
+          <div class="arch-content">
+            <div class="arch-step-num">04</div>
+            <div class="arch-step-title">Verdict</div>
+            <div class="arch-step-desc">Transaction is either VERIFIED (safe) or BLOCKED (fraud). The Vite frontend streams results in real-time to the SOC console.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tech stack row -->
+      <div class="tech-stack">
+        <div class="tech-item"><span class="tech-dot"></span>Python 3.13</div>
+        <div class="tech-item"><span class="tech-dot"></span>Flask + Flask-CORS</div>
+        <div class="tech-item"><span class="tech-dot"></span>scikit-learn</div>
+        <div class="tech-item"><span class="tech-dot"></span>Node.js v22</div>
+        <div class="tech-item"><span class="tech-dot"></span>Vite 8</div>
+        <div class="tech-item"><span class="tech-dot"></span>Pandas · NumPy</div>
+        <div class="tech-item"><span class="tech-dot"></span>joblib</div>
+        <div class="tech-item"><span class="tech-dot"></span>284K Real Transactions</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ LIVE DASHBOARD ═══════════════ -->
+  <section class="section dashboard-section" id="dashboard">
+    <div class="dashboard-intro">
+      <div class="section-label" style="text-align:center">LIVE DEMO</div>
+      <h2 class="section-title" style="text-align:center">Real-Time Fraud Console</h2>
+      <p class="section-sub" style="text-align:center;max-width:560px;margin:0 auto 24px">
+        Watch the ML pipeline analyse live UPI transactions. Use the manual analyzer to test any UPI ID or Transaction ID.
+      </p>
+      <div class="dash-controls">
+        <div class="dash-live-pill">
+          <span class="dash-dot" id="status-dot-anim"></span>
+          <span id="live-status">System Active</span>
+        </div>
+        <div class="dash-clock" id="top-clock">--:--:--</div>
+        <div class="dash-btns">
+          <button id="restart-btn" class="dash-btn" title="Reset">
+            <i data-feather="rotate-ccw"></i> Reset
+          </button>
+          <button id="toggle-sim-btn" class="dash-btn primary" title="Pause/Resume">
+            <i data-feather="pause" id="toggle-icon"></i>
+            <span id="toggle-label">Pause</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Tabs Navigation -->
+    <div class="dash-tabs" id="dash-tabs">
+      <button class="tab-btn active" data-tab="stream">
+        <i data-feather="activity"></i>
+        <span>Stream</span>
+      </button>
+      <button class="tab-btn" data-tab="inspector">
+        <i data-feather="cpu"></i>
+        <span>Inspector</span>
+      </button>
+      <button class="tab-btn" data-tab="metrics">
+        <i data-feather="bar-chart-2"></i>
+        <span>Metrics</span>
+      </button>
+    </div>
+
+    <!-- Dashboard grid -->
+    <div class="dash-grid active-stream" id="dash-grid">
+
+      <!-- LEFT: Stream -->
+      <div class="dash-panel">
+        <div class="dash-panel-hdr">
+          <div class="dph-left"><i data-feather="activity"></i> Live Stream</div>
+          <div class="scan-chip"><div class="scan-dot" id="scan-dot"></div><span>Scanning</span></div>
+        </div>
+        <div class="dash-feed" id="feed-container"></div>
+      </div>
+
+      <!-- CENTER: Inspector -->
+      <div class="dash-panel inspector-panel">
+        <div class="dash-panel-hdr">
+          <div class="dph-left"><i data-feather="cpu"></i> Transaction Inspector</div>
+          <div class="model-chip">3-Model Ensemble</div>
+        </div>
+
+        <div class="dash-analysis" id="active-analysis">
+          <div class="dash-idle">
+            <svg viewBox="0 0 90 90" width="90" height="90">
+              <circle cx="45" cy="45" r="38" fill="none" stroke="rgba(139,92,246,0.1)" stroke-width="1.5"/>
+              <circle cx="45" cy="45" r="38" fill="none" stroke="url(#dsg)"
+                stroke-width="1.5" stroke-dasharray="55 184" stroke-linecap="round" class="idle-spin"/>
+              <circle cx="45" cy="45" r="26" fill="none" stroke="rgba(139,92,246,0.2)"
+                stroke-width="1" stroke-dasharray="25 138" stroke-linecap="round" class="idle-spin-rev"/>
+              <defs>
+                <linearGradient id="dsg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#8b5cf6"/>
+                  <stop offset="100%" stop-color="#3b82f6"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="dash-idle-title">Awaiting Transaction</div>
+            <div class="dash-idle-sub">Transactions appear automatically from the live stream.</div>
+          </div>
+        </div>
+
+        <!-- Pipeline -->
+        <div class="pipe-row">
+          <span class="pipe-row-lbl"><i data-feather="git-branch"></i> ML Pipeline</span>
+          <div class="pipe-nodes">
+            <div class="pn" id="node-input"><div class="pn-orb"><i data-feather="wifi"></i></div><span>Input</span></div>
+            <div class="pw" id="line-1"></div>
+            <div class="pn" id="node-lr"><div class="pn-orb"><i data-feather="trending-up"></i></div><span>Log Reg</span></div>
+            <div class="pw" id="line-2"></div>
+            <div class="pn" id="node-svm"><div class="pn-orb"><i data-feather="maximize-2"></i></div><span>SVM</span></div>
+            <div class="pw" id="line-3"></div>
+            <div class="pn" id="node-rf"><div class="pn-orb"><i data-feather="git-branch"></i></div><span>Rand Forest</span></div>
+            <div class="pw" id="line-4"></div>
+            <div class="pn final" id="node-out"><div class="pn-orb"><i data-feather="shield"></i></div><span>Verdict</span></div>
+          </div>
+        </div>
+
+        <!-- Analyzer -->
+        <div class="analyzer-row">
+          <div class="az-field">
+            <i data-feather="terminal"></i>
+            <input id="manual-vpa-input" type="text" placeholder="Enter UPI ID or Transaction ID to analyze...">
+          </div>
+          <button id="simulate-btn" class="az-btn">
+            <i data-feather="zap"></i> Analyze
+          </button>
+        </div>
+        <div id="diag-hud" class="diag-box" style="display:none">
+          <div class="diag-box-top">
+            <span class="diag-lbl">RESULT</span>
+            <div id="diag-badge" class="diag-pill">SCANNING</div>
+          </div>
+          <div id="diag-decision" class="diag-verdict">Analyzing...</div>
+          <div id="diag-confidence" class="diag-conf"></div>
+          <div id="diag-reason" class="diag-reason"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Metrics -->
+      <div class="dash-panel metrics-panel">
+        <div class="dash-panel-hdr">
+          <div class="dph-left"><i data-feather="bar-chart-2"></i> Metrics</div>
+        </div>
+
+        <!-- Gauge -->
+        <div class="gauge-wrap">
+          <div class="gauge-title">THREAT LEVEL</div>
+          <svg viewBox="0 0 180 110" class="gauge-svg">
+            <defs>
+              <linearGradient id="gg" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#22c55e"/>
+                <stop offset="55%" stop-color="#f59e0b"/>
+                <stop offset="100%" stop-color="#ef4444"/>
+              </linearGradient>
+            </defs>
+            <path d="M18 96 A72 72 0 0 1 162 96" fill="none"
+              stroke="rgba(255,255,255,0.05)" stroke-width="12" stroke-linecap="round"/>
+            <path id="gauge-arc" d="M18 96 A72 72 0 0 1 162 96" fill="none"
+              stroke="url(#gg)" stroke-width="12" stroke-linecap="round"
+              stroke-dasharray="0 226.2"/>
+            <line id="gauge-needle" x1="90" y1="96" x2="90" y2="30"
+              stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="90" cy="96" r="4" fill="rgba(255,255,255,0.12)"
+              stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
+            <text x="14"  y="110" fill="#22c55e" font-size="8" font-family="JetBrains Mono">LOW</text>
+            <text x="74"  y="20"  fill="rgba(255,255,255,0.3)" font-size="8" font-family="JetBrains Mono">MED</text>
+            <text x="150" y="110" fill="#ef4444" font-size="8" font-family="JetBrains Mono">HIGH</text>
+          </svg>
+          <div class="gauge-readout">
+            <div class="gauge-num" id="gauge-pct">0<small>%</small></div>
+            <div class="gauge-sublbl">Risk Score</div>
+          </div>
+        </div>
+
+        <!-- Counters -->
+        <div class="m-counters">
+          <div class="m-counter blue">
+            <div class="mc-icon"><i data-feather="activity"></i></div>
+            <div class="mc-num" id="stat-processed">0</div>
+            <div class="mc-lbl">Processed</div>
+          </div>
+          <div class="m-counter red">
+            <div class="mc-icon"><i data-feather="alert-octagon"></i></div>
+            <div class="mc-num danger" id="stat-prevented">0</div>
+            <div class="mc-lbl">Blocked</div>
+          </div>
+        </div>
+
+        <!-- Rate -->
+        <div class="m-rate">
+          <div class="m-rate-hdr">
+            <span>Detection Rate</span>
+            <span class="m-rate-pct" id="fraud-rate-pct">0.0%</span>
+          </div>
+          <div class="m-rate-track"><div class="m-rate-bar" id="fraud-rate-bar"></div></div>
+        </div>
+
+        <!-- Performance -->
+        <div class="m-perf">
+          <div class="m-perf-title">Model Performance</div>
+          <div class="m-perf-row"><span class="mpr-l">Accuracy</span><div class="mpr-t"><div class="mpr-f" style="width:99.94%"></div></div><span class="mpr-v purple">99.94%</span></div>
+          <div class="m-perf-row"><span class="mpr-l">F1-Score</span><div class="mpr-t"><div class="mpr-f" style="width:99.71%"></div></div><span class="mpr-v purple">0.9971</span></div>
+          <div class="m-perf-row"><span class="mpr-l">Precision</span><div class="mpr-t"><div class="mpr-f gf" style="width:99.8%"></div></div><span class="mpr-v green">99.8%</span></div>
+          <div class="m-perf-row"><span class="mpr-l">Recall</span><div class="mpr-t"><div class="mpr-f gf" style="width:99.9%"></div></div><span class="mpr-v green">99.9%</span></div>
+        </div>
+
+        <!-- Services -->
+        <div class="m-services">
+          <div class="ms-title">Active Services</div>
+          <div class="ms-row"><div class="ms-dot on"></div><span>ML Server (Flask)</span><span class="ms-p">:5000</span></div>
+          <div class="ms-row"><div class="ms-dot on"></div><span>API Backend (Node)</span><span class="ms-p">:3001</span></div>
+          <div class="ms-row"><div class="ms-dot on"></div><span>Frontend (Vite)</span><span class="ms-p">:5173</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg viewBox="0 0 36 40" width="20" height="22">
+          <path d="M18 1 L34 9 L34 22 C34 31 18 39 18 39 C18 39 2 31 2 22 L2 9 Z"
+            fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.5)" stroke-width="1.5" stroke-linejoin="round"/>
+          <text x="18" y="24" text-anchor="middle" fill="#a78bfa" font-size="9"
+            font-family="Inter" font-weight="800">AX</text>
+        </svg>
+        <div>
+          <div class="footer-logo-text">AEGIS<span>-X</span></div>
+          <div class="footer-tagline">UPI Fraud Intelligence Platform</div>
+        </div>
+      </div>
+      <div class="footer-info">
+
+        <div class="footer-meta">Trained on 284,807 real financial transactions · 99.94% accuracy</div>
+      </div>
+      <div class="footer-stack">
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">Flask</span>
+        <span class="stack-tag">scikit-learn</span>
+        <span class="stack-tag">Node.js</span>
+        <span class="stack-tag">Vite</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+  <script>
+    // Clock
+    function tick() {
+      const now = new Date(), p = n => String(n).padStart(2,'0');
+      const el = document.getElementById('top-clock');
+      if (el) el.textContent = `${p(now.getHours())}:${p(now.getMinutes())}:${p(now.getSeconds())}`;
+    }
+    setInterval(tick,1000); tick();
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const nb = document.getElementById('navbar');
+      if (nb) nb.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    if (window.feather) feather.replace();
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+# Local batch script
+run.bat
+
+# Data files
+creditcard.csv
+
+# Node
+node_modules/
+dist/
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env/
+
+# IDEs & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
